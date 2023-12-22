@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <title>This should redirect!</title>
+  </head>
+  <body>
+    <form action="https://proxyrequest.proxyium.com" method="post" id="web_proxy_form">
+      <select name="proxy_country">
+        <option value="pl" selected>
+          Poland (Fast)
+        </option>
+      </select>
+      <input placeholder="Put a URL or search query here to start browsing" type="text" class="form-control" id="unique-form-control" value="https://www.bbc.com/russian/news-64388149" name="url" />
+      <button type="submit" value="Send">
+        GO
+      </button>
+    </form>
+
+    <script>
+      setTimeout(() => {
+        document.querySelector('#web_proxy_form').submit();
+      }, 5000);
+    </script>
+  </body>
+</html>
+
