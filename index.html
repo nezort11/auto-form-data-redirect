@@ -1,29 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+  <head>
+    <title>Wait until redirect...</title>
+  </head>
 
-<head>
-  <title>Wait until redirect...</title>
-</head>
+  <body>
+    <p>Wait until redirect...</p>
 
-<body>
-  <p>Wait until redirect...</p>
+    <!-- <form
+      action="https://cdn.proxyium.com/proxyrequest.php"
+      method="post"
+      id="web_proxy_form"
+      style="display: none"
+    >
+      <input id="proxy_country" name="proxy_country" />
+      <input id="url" name="url" />
+    </form> -->
 
-  <form action="https://proxyrequest.proxyium.com" method="post" id="web_proxy_form" style="display: none;">
-    <input id="proxy_country" name="proxy_country" />
-    <input id="url" name="url" />
-  </form>
+    <script>
+      window.onload = function () {
+        var urlParams = new URLSearchParams(window.location.search);
+        // var proxyCountry = urlParams.get("country");
+        var url = urlParams.get("url");
 
-  <script>
-    window.onload = function () {
-      var urlParams = new URLSearchParams(window.location.search);
-      var proxyCountry = urlParams.get('country');
-      var url = urlParams.get('url');
+        var CROXYPROXY_AUTH_SECRET =
+          "aXZqM0xLVXZpY3FBbHNKN0VOMy9vSSthQmNoMzlkWUpvSzZodTBJZ1l4bkdqOG1mTGNhalphRU5kd1FhNnZFWi96TmIvR0JnQTRnTjdqaXBGcUtlTHc9PQ%3D%3D";
+        var urlBase64Encoded = btoa(url);
 
-      document.querySelector('#proxy_country').value = proxyCountry;
-      document.querySelector('#url').value = url;
-      document.querySelector('#web_proxy_form').submit();
-    }
-  </script>
-</body>
+        window.location.replace(
+          `https://azureserv.com/__cpi.php?s=${CROXY_PROXY_AUTH_SECRET}&r=${urlBase64Encoded}`
+        );
 
+        // document.querySelector("#proxy_country").value = proxyCountry;
+        // document.querySelector("#url").value = url;
+        // document.querySelector("#web_proxy_form").submit();
+      };
+    </script>
+  </body>
 </html>
